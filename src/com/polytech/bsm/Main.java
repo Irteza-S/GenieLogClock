@@ -14,6 +14,9 @@ public class Main {
 		
 		clock.attachObserver(defView);
 		clock.notifyObservers();
+		
+		Thread thread = new Thread(clock);
+		thread.start();
 	}
 
 }

@@ -53,6 +53,13 @@ public class Clock implements Subject, Runnable
 
     public void run()
     {
-
+    	while(true) {
+    		notifyObservers(); 
+    		try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+    	}
     }
 }
