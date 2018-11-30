@@ -18,7 +18,7 @@ public class Clock implements Subject, Runnable
 
     public Clock(Strategy strategy)
     {
-    	this.time = LocalTime.now();
+    	this.time = strategy.getTime();
     	this.strategy = strategy;
         timeMap = new HashMap<>();
         observerList = new ArrayList<>();
