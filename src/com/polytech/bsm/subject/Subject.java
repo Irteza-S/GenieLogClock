@@ -1,5 +1,10 @@
 package com.polytech.bsm.subject;
 
-public interface Subject {
+import com.polytech.bsm.observer.Observer;
 
+public interface Subject
+{
+    public void attachObserver(Observer observer);
+    public void detachObserver(Observer observer);
+    public void notifyObservers();
 }
