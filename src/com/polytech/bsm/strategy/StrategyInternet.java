@@ -1,11 +1,11 @@
 package com.polytech.bsm.strategy;
 
-import java.time.LocalTime;
+import com.polytech.bsm.clock.FullTime;
 
 public class StrategyInternet implements Strategy {
 	
 	// TODO
-    public LocalTime getTime() {
+    public FullTime getTime() {
         return null;
     }
 }

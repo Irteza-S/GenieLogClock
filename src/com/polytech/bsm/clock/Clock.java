@@ -4,16 +4,15 @@ import com.polytech.bsm.observer.Observer;
 import com.polytech.bsm.strategy.Strategy;
 import com.polytech.bsm.subject.Subject;
 
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Clock implements Subject, Runnable {
 
 	// Attributes
-    private LocalTime time;
+    private FullTime time;
     private HashMap<String, Integer> timeMap = new HashMap<>();
-    private ArrayList<Observer> observerList = new ArrayList<>();
+    private ArrayList<Observer> observerList = new ArrayList<Observer>();
     private Strategy strategy;
 
     // Constructors
@@ -21,7 +20,7 @@ public class Clock implements Subject, Runnable {
     	this.strategy = strategy;
     	this.time = strategy.getTime();
         timeMap = new HashMap<>();
-        observerList = new ArrayList<>();
+        observerList = new ArrayList<Observer>();
     }
 
     // Managing observers
@@ -38,16 +37,16 @@ public class Clock implements Subject, Runnable {
         updateTimeMap();
 
         for(Observer obs : observerList)  {
-            obs.update(timeMap);
+            obs.update(timeMap, time.getTimeZone());
         }
     }
 
     // Updating time with the appropriate strategy
     private void updateTimeMap() {
         time = strategy.getTime();
-        timeMap.put("hours", time.getHour());
-        timeMap.put("minutes", time.getMinute());
-        timeMap.put("seconds", time.getSecond());
+        timeMap.put("hours", time.getLocalTime().getHour());
+        timeMap.put("minutes", time.getLocalTime().getMinute());
+        timeMap.put("seconds", time.getLocalTime().getSecond());
     }
 
     // What the thread will do
@@ -56,6 +55,7 @@ public class Clock implements Subject, Runnable {
     	while(true) {
     		
     		notifyObservers();
+    		System.out.println();
     		
     		// Wait a second before notifying again
     		try {

@@ -1,18 +1,19 @@
-//package com.polytech.bsm.strategy;
-//
+package com.polytech.bsm.strategy;
+
+import com.polytech.bsm.clock.FullTime;
+
 //import org.apache.commons.net.ntp.NTPUDPClient;
 //import org.apache.commons.net.ntp.TimeInfo;
-//
+
 //import javax.xml.crypto.Data;
 //import java.io.IOException;
 //import java.net.InetAddress;
 //import java.net.UnknownHostException;
-//import java.time.LocalTime;
 //import java.util.Date;
-//
-//
-//public class StrategyServer implements Strategy
-//{
+
+
+public class StrategyServer implements Strategy
+{
 //    private String TIME_SERVER;
 //    private NTPUDPClient timeClient;
 //    private InetAddress inetAddress;
@@ -24,8 +25,8 @@
 //
 //    }
 //
-//    public LocalTime getTime()
-//    {
+    public FullTime getTime()
+    {
 //        try {
 //            inetAddress = InetAddress.getByName(TIME_SERVER);
 //            TimeInfo timeInfo = timeClient.getTime(inetAddress);
@@ -37,6 +38,6 @@
 //        {
 //            System.out.println(e);
 //        }
-//        return null;
-//    }
-//}
+        return null;
+    }
+}
