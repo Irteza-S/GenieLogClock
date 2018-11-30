@@ -37,6 +37,8 @@ public abstract class View implements Observer {
 		this.hours = timeMap.get("hours");
 		this.minutes = timeMap.get("minutes");
 		this.seconds = timeMap.get("seconds");
+		
+		display();
 	}
 	
 	public void display() {	

@@ -14,6 +14,9 @@ public class Clock implements Subject
     private HashMap<String, Integer> timeMap = new HashMap<>();
     private ArrayList<Observer> observerList = new ArrayList<>();
 
+    public Clock() {
+    	this.time = LocalTime.now();
+    }
 
     public void attachObserver(Observer observer)
     {
