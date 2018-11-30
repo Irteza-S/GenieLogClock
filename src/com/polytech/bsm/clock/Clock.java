@@ -25,6 +25,7 @@ public class Clock implements Subject
     }
     public void notifyObservers()
     {
+    	
         for(int i=0; i<observerList.size(); i++)
         {
             observerList.get(i).notify();
