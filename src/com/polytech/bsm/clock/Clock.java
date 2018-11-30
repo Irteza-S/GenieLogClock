@@ -7,19 +7,21 @@ import com.polytech.bsm.subject.Subject;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.TimeZone;
 
 public class Clock implements Subject, Runnable {
 
 	// Attributes
     private LocalTime time;
+    private TimeZone timeZone;
     private HashMap<String, Integer> timeMap = new HashMap<>();
     private ArrayList<Observer> observerList = new ArrayList<>();
     private Strategy strategy;
 
     // Constructors
     public Clock(Strategy strategy) {
-    	this.time = LocalTime.now();
     	this.strategy = strategy;
+    	time = strategy.getTime();
         timeMap = new HashMap<>();
         observerList = new ArrayList<>();
     }
