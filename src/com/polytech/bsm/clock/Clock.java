@@ -25,11 +25,19 @@ public class Clock implements Subject
     }
     public void notifyObservers()
     {
+        updateTimeMap();
         for(int i=0; i<observerList.size(); i++)
         {
-            observerList.get(i).notify();
+            observerList.get(i).update(timeMap);
         }
 
+    }
+
+    private void updateTimeMap()
+    {
+        timeMap.put("hours", time.getHour());
+        timeMap.put("minutes", time.getMinute());
+        timeMap.put("seconds", time.getSecond());
     }
 
 
