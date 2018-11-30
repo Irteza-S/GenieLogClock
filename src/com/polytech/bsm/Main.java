@@ -10,6 +10,8 @@ public class Main {
 		Clock clock = new Clock();
 		DefaultView defView = new DefaultView();
 		
+		clock.attachObserver(defView);
+		clock.notifyObservers();
 	}
 
 }
