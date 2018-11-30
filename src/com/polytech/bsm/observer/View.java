@@ -4,8 +4,10 @@ import java.util.HashMap;
 
 public abstract class View implements Observer {
 	
+	// Attributes
 	private Integer hours, minutes, seconds;
 	
+	// Constructors
 	public View() {
 		hours = 0;
 		minutes = 0;
@@ -41,6 +43,7 @@ public abstract class View implements Observer {
 		display();
 	}
 	
+	// Displaying default time
 	public void display() {	
 		System.out.println(hours + "h" + minutes + "min" + seconds + "s");
 	}
