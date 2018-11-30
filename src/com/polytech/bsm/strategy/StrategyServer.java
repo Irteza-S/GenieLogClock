@@ -2,10 +2,12 @@ package com.polytech.bsm.strategy;
 
 import java.time.LocalTime;
 
-public class StrategyPc implements Strategy
+public class StrategyServer implements Strategy
 {
+
+
     public LocalTime getTime()
     {
-        return LocalTime.now();
+        return null;
     }
 }
